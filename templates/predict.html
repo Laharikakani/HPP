@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Predict</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        body {
+            background-image: url("{% static 'img2.jpg' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+        }
+
+        .main {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            width: 50%; /* Reduced width of the container */
+            margin: 100px auto;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+
+        .row {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .col-sn-4 {
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            width: 30%; /* Reduced width of each input box */
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: grey;
+        }
+    </style>
+</head>
+<body>
+     <div class="main">
+         <h1>Please enter the following values:</h1>
+         <form action="/predict/result">
+             <div class="row">
+                 <div class="col-sn-4" style="background-color:Bisque;">
+                     <p>Avg.Area Income</p>
+                     <input type="text" name="n1">
+                 </div>
+                 <div class="col-sn-4" style="background-color:DarkSeaGreen;">
+                     <p>Avg.Area House Age</p>
+                     <input type="text" name="n2">
+                 </div>
+                 <div class="col-sn-4" style="background-color:LightPink;">
+                     <p>Avg.Area Number of Rooms</p>
+                     <input type="text" name="n3">
+                 </div>
+             </div>
+             <div class="row">
+                 <div class="col-sn-4" style="background-color:Turquoise;">
+                     <p>Avg.Area Number of Bedrooms</p>
+                     <input type="text" name="n4">
+                 </div>
+                 <div class="col-sn-4" style="background-color:RosyBrown;">
+                     <p>Avg.Area Population</p>
+                     <input type="text" name="n5">
+                 </div>
+             </div>
+             <div class="row">
+                 <input type="submit" value="PREDICT">
+             </div>
+         </form>
+         <div class="row">
+             <h2>{{ result2 }}</h2>
+         </div>
+     </div>
+</body>
+</html>
